@@ -13,6 +13,8 @@
         <spring-version>4.3.9.RELEASE</spring-version>
         <junit-version>4.12</junit-version>
         <inject-version>1</inject-version>
+        <dbcp-version>2.1.1</dbcp-version>
+        <mysql-version>5.1.40</mysql-version>
     </properties>
 
     <dependencies>
@@ -36,6 +38,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit-version}</version>
@@ -47,6 +55,17 @@
             <version>${inject-version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${dbcp-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-version}</version>
+        </dependency>
     </dependencies>
 
     <build>
