@@ -15,6 +15,7 @@ import javax.inject.Named;
 //@Lazy
 @Named
 public class UserDao {
+
     public void save() {
         System.out.println("userDao saved");
     }

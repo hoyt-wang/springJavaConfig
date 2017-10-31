@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -19,6 +21,7 @@ import javax.sql.DataSource;
 @ComponentScan
 //@EnableAspectJAutoProxy
 @PropertySource(value = "classpath:config.properties")
+@EnableTransactionManagement
 public class Application {
 
     @Autowired
@@ -39,6 +42,14 @@ public class Application {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(dataSource());
         return jdbcTemplate;
+    }
+
+
+    @Bean
+    public DataSourceTransactionManager dataSourceTransactionManager() {
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
+        dataSourceTransactionManager.setDataSource(dataSource());
+        return dataSourceTransactionManager;
     }
 
 

@@ -40,8 +40,13 @@ public class ProductDaoTestCase extends BaseTestCase{
     }
 
     @Test
-    public void count() {
+    public void countTest() {
         Long num = productDao.count();
         System.out.println(num);
+    }
+
+    @Test
+    public void deleteByIdTest() {
+        productDao.deleteById(25);
     }
 }

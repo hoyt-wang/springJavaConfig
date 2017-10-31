@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,6 +43,10 @@ public class ProductDao {
         return jdbcTemplate.queryForObject(sql,Long.class);
     }
 
+    public void deleteById(Integer id) {
+        String sql = "delete from t_product where id = ?";
+        jdbcTemplate.update(sql,id);
+    }
     private class ProductRowMapper implements RowMapper<Product>{
         @Override
         public Product mapRow(ResultSet resultSet, int i) throws SQLException {
